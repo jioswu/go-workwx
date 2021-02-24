@@ -2,12 +2,11 @@ package commands
 
 import (
 	"fmt"
+	"github.com/jioswu/go-workwx"
 	"net/http"
 	"os"
 
 	"github.com/urfave/cli/v2"
-
-	"github.com/xen0n/go-workwx"
 )
 
 const (

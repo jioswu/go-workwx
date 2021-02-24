@@ -952,3 +952,61 @@ type TaskCardBtn struct {
 	// IsBold 按钮字体是否加粗，默认false
 	IsBold bool `json:"is_bold"`
 }
+
+//add_contact_way 联系我请求参数
+type ReqAddContactWay struct {
+	Type          int                    `json:"type"`
+	Scene         int                    `json:"scene"`
+	Style         int                    `json:"style"`
+	Remark        string                 `json:"remark"`
+	SkipVerify    bool                   `json:"skip_verify"`
+	State         string                 `json:"state"`
+	User          []string               `json:"user"`
+	Party         []int                  `json:"party"`
+	IsTemp        bool                   `json:"is_temp"`
+	ExpiresIn     int64                  `json:"expires_in"`
+	ChatExpiresIn int64                  `json:"chat_expires_in"`
+	Unionid       string                 `json:"unionid"`
+	Conclusions   map[string]interface{} `json:"conclusions"`
+}
+
+func (x ReqAddContactWay) intoBody() ([]byte, error) {
+	result, err := json.Marshal(x)
+	if err != nil {
+		// should never happen unless OOM or similar bad things
+		// TODO: error_chain
+		return nil, err
+	}
+
+	return result, nil
+}
+
+type RespAddContactWay struct {
+	respCommon
+	ConfigId string `json:"config_id"`
+	QrCode   string `json:"qr_code"`
+}
+
+//get_contact_way 获取企业已配置的「联系我」方式
+type reqGetContactWay struct {
+	ConfigId string `json:"config_id"`
+}
+
+type respGetContactWay struct {
+	respCommon
+	ConfigId      string                 `json:"config_id"`
+	Type          int                    `json:"type"`
+	Scene         int                    `json:"scene"`
+	IsTemp        bool                   `json:"is_temp"`
+	Remark        string                 `json:"remark"`
+	SkipVerify    bool                   `json:"skip_verify"`
+	State         string                 `json:"state"`
+	Style         int                    `json:"style"`
+	QrCode        string                 `json:"qr_code"`
+	User          []string               `json:"user"`
+	Party         []int                  `json:"party"`
+	ExpiresIn     int64                  `json:"expires_in"`
+	ChatExpiresIn int64                  `json:"chat_expires_in"`
+	Unionid       string                 `json:"unionid"`
+	Conclusions   map[string]interface{} `json:"conclusions"`
+}

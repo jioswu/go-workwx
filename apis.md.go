@@ -128,6 +128,20 @@ func (c *WorkwxApp) execUserInfoGet(req reqUserInfoGet) (respUserInfoGet, error)
 	return resp, nil
 }
 
+// execExternalContactAddContactWay 联系我
+func (c *WorkwxApp) execExternalContactAddContactWay(req ReqAddContactWay) (RespAddContactWay, error) {
+	var resp RespAddContactWay
+	err := c.executeQyapiJSONPost("/cgi-bin/externalcontact/add_contact_way", req, &resp, true)
+	if err != nil {
+		return RespAddContactWay{}, err
+	}
+	if bizErr := resp.TryIntoErr(); bizErr != nil {
+		return RespAddContactWay{}, bizErr
+	}
+
+	return resp, nil
+}
+
 // execExternalContactList 获取客户列表
 func (c *WorkwxApp) execExternalContactList(req reqExternalContactList) (respExternalContactList, error) {
 	var resp respExternalContactList

@@ -1,4 +1,4 @@
-module github.com/xen0n/go-workwx
+module github.com/jioswu/go-workwx
 
 go 1.12
 

@@ -4,13 +4,12 @@ import (
 	"crypto/rand"
 	"encoding/xml"
 	"errors"
+	"github.com/jioswu/go-workwx/internal/lowlevel/encryptor"
+	"github.com/jioswu/go-workwx/internal/lowlevel/signature"
 	"io"
 	"math/big"
 	"net/url"
 	"strconv"
-
-	"github.com/xen0n/go-workwx/internal/lowlevel/encryptor"
-	"github.com/xen0n/go-workwx/internal/lowlevel/signature"
 )
 
 type Processor struct {

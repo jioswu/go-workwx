@@ -7,9 +7,8 @@ import (
 	"encoding/base64"
 	"encoding/binary"
 	"errors"
+	"github.com/jioswu/go-workwx/internal/lowlevel/pkcs7"
 	"io"
-
-	"github.com/xen0n/go-workwx/internal/lowlevel/pkcs7"
 )
 
 type WorkwxPayload struct {

@@ -4,6 +4,10 @@ import (
 	"time"
 )
 
+func (c *WorkwxApp) ExecExternalContactAddContactWay(req *ReqAddContactWay) (resp RespAddContactWay, err error) {
+	return c.execExternalContactAddContactWay(*req)
+}
+
 // ListExternalContact 获取客户列表
 func (c *WorkwxApp) ListExternalContact(userID string) ([]string, error) {
 	resp, err := c.execExternalContactList(reqExternalContactList{

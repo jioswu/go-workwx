@@ -2,9 +2,8 @@ package commands
 
 import (
 	"fmt"
+	"github.com/jioswu/go-workwx"
 	"strconv"
-
-	"github.com/xen0n/go-workwx"
 
 	"github.com/urfave/cli/v2"
 )

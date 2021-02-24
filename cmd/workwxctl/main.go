@@ -1,9 +1,8 @@
 package main
 
 import (
+	"github.com/jioswu/go-workwx/cmd/workwxctl/commands"
 	"os"
-
-	"github.com/xen0n/go-workwx/cmd/workwxctl/commands"
 )
 
 func main() {

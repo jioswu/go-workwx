@@ -2,11 +2,10 @@ package httpapi
 
 import (
 	"errors"
+	"github.com/jioswu/go-workwx/internal/lowlevel/signature"
 	"net/http"
 	"net/url"
 	"strconv"
-
-	"github.com/xen0n/go-workwx/internal/lowlevel/signature"
 )
 
 type ToEchoTestAPIArgs interface {
