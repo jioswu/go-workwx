@@ -20,6 +20,7 @@ func (h *LowlevelHandler) eventHandler(
 	defer r.Body.Close()
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
+		fmt.Printf("~~~~~~~ ioutil.ReadAll err=%#v\n", err)
 		rw.WriteHeader(http.StatusInternalServerError)
 		return
 	}
