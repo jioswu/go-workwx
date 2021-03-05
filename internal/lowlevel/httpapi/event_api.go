@@ -1,6 +1,7 @@
 package httpapi
 
 import (
+	"fmt"
 	"github.com/jioswu/go-workwx/internal/lowlevel/envelope"
 	"io/ioutil"
 	"net/http"
@@ -22,14 +23,14 @@ func (h *LowlevelHandler) eventHandler(
 		rw.WriteHeader(http.StatusInternalServerError)
 		return
 	}
-
+	fmt.Printf("~~~~~~~eventHandler body=%s\n", string(body))
 	// signature verification is inside EnvelopeProcessor
 	ev, err := h.ep.HandleIncomingMsg(r.URL, body)
 	if err != nil {
 		rw.WriteHeader(http.StatusBadRequest)
 		return
 	}
-
+	fmt.Printf("~~~~~~~eventHandler ev=%#v\n", ev)
 	err = h.eh.OnIncomingEnvelope(ev)
 	if err != nil {
 		rw.WriteHeader(http.StatusInternalServerError)
