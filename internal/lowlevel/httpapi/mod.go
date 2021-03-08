@@ -1,6 +1,7 @@
 package httpapi
 
 import (
+	"fmt"
 	"github.com/jioswu/go-workwx/internal/lowlevel/encryptor"
 	"github.com/jioswu/go-workwx/internal/lowlevel/envelope"
 	"net/http"
@@ -42,6 +43,7 @@ func (h *LowlevelHandler) ServeHTTP(
 	rw http.ResponseWriter,
 	r *http.Request,
 ) {
+	fmt.Printf("~~~~~~~----->ServeHTTP body=%#v\n", r.Body)
 	switch r.Method {
 	case http.MethodGet:
 		// 测试回调模式请求

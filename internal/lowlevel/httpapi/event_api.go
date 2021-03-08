@@ -18,6 +18,7 @@ func (h *LowlevelHandler) eventHandler(
 	// request bodies are assumed small
 	// we can't do streaming parse/decrypt/verification anyway
 	defer r.Body.Close()
+	fmt.Printf("~~~~~~~----->eventHandler body=%#v\n", r.Body)
 	body, err := ioutil.ReadAll(r.Body)
 	if err != nil {
 		fmt.Printf("~~~~~~~ ioutil.ReadAll err=%#v\n", err)
@@ -28,6 +29,7 @@ func (h *LowlevelHandler) eventHandler(
 	// signature verification is inside EnvelopeProcessor
 	ev, err := h.ep.HandleIncomingMsg(r.URL, body)
 	if err != nil {
+		fmt.Printf("~~~~~~~HandleIncomingMsg err=%#v\n", err)
 		rw.WriteHeader(http.StatusBadRequest)
 		return
 	}
