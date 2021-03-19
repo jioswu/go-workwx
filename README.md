@@ -4,7 +4,8 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/xen0n/go-workwx)](https://goreportcard.com/report/github.com/xen0n/go-workwx)
 [![GoDoc](http://godoc.org/github.com/xen0n/go-workwx?status.svg)](http://godoc.org/github.com/xen0n/go-workwx)
 
-```go
+```
+go
 import (
     "github.com/xen0n/go-workwx" // package workwx
 )
@@ -60,7 +61,11 @@ in at least 2 of Qiniu's internal systems.
 ## Supported APIs
 
 * [x] 通讯录管理 (**部分支持**，见下)
+<<<<<<< HEAD
 * [ ] 外部联系人管理
+=======
+* [ ] 客户联系
+>>>>>>> upstream/develop
 * [ ] 应用管理
 * [x] 消息发送 (除修改群聊会话外全部支持)
 * [x] 消息接收 (**接口尚不稳定，极有可能做出不兼容改动，先不要用**)
@@ -110,12 +115,20 @@ in at least 2 of Qiniu's internal systems.
 </details>
 
 <details>
+<<<<<<< HEAD
 <summary>外部联系人管理 API</summary>
+=======
+<summary>客户联系 API</summary>
+>>>>>>> upstream/develop
 
 * [x] 成员对外信息
 * [x] 客户管理
     - [x] 获取客户列表
     - [x] 获取客户详情
+<<<<<<< HEAD
+=======
+    - [x] 批量获取客户详情
+>>>>>>> upstream/develop
     - [x] 修改客户备注信息
 * [x] 客户标签管理
    - [x] 管理企业标签

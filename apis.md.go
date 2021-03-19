@@ -128,6 +128,7 @@ func (c *WorkwxApp) execUserInfoGet(req reqUserInfoGet) (respUserInfoGet, error)
 	return resp, nil
 }
 
+
 // execExternalContactAddContactWay 联系我
 func (c *WorkwxApp) execExternalContactAddContactWay(req ReqAddContactWay) (RespAddContactWay, error) {
 	var resp RespAddContactWay
@@ -141,6 +142,7 @@ func (c *WorkwxApp) execExternalContactAddContactWay(req ReqAddContactWay) (Resp
 
 	return resp, nil
 }
+
 
 // execExternalContactList 获取客户列表
 func (c *WorkwxApp) execExternalContactList(req reqExternalContactList) (respExternalContactList, error) {
@@ -169,6 +171,22 @@ func (c *WorkwxApp) execExternalContactGet(req reqExternalContactGet) (respExter
 
 	return resp, nil
 }
+
+
+// execExternalContactBatchList 批量获取客户详情
+func (c *WorkwxApp) execExternalContactBatchList(req reqExternalContactBatchList) (respExternalContactBatchList, error) {
+	var resp respExternalContactBatchList
+	err := c.executeQyapiJSONPost("/cgi-bin/externalcontact/batch/get_by_user", req, &resp, true)
+	if err != nil {
+		return respExternalContactBatchList{}, err
+	}
+	if bizErr := resp.TryIntoErr(); bizErr != nil {
+		return respExternalContactBatchList{}, bizErr
+	}
+
+	return resp, nil
+}
+
 
 // execExternalContactRemark 修改客户备注信息
 func (c *WorkwxApp) execExternalContactRemark(req reqExternalContactRemark) (respExternalContactRemark, error) {
