@@ -11,7 +11,7 @@ type ReqSendWelcomeMsg struct {
 	Text        SendWelcomeMsgText `json:"text,omitempty"`
 	//Image       SendWelcomeMsgImage       `json:"image,omitempty"`
 	//Link        SendWelcomeMsgLink        `json:"link,omitempty"`
-	//Miniprogram SendWelcomeMsgMiniprogram `json:"miniprogram,omitempty"`
+	Miniprogram SendWelcomeMsgMiniprogram `json:"miniprogram,omitempty"`
 }
 
 type SendWelcomeMsgText struct {
