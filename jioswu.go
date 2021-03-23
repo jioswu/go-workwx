@@ -8,10 +8,10 @@ import (
 //send_welcome_msg 发送新客户欢迎语
 type ReqSendWelcomeMsg struct {
 	WelcomeCode string                    `json:"welcome_code"`
-	Text        SendWelcomeMsgText        `json:"text"`
-	Image       SendWelcomeMsgImage       `json:"image"`
-	Link        SendWelcomeMsgLink        `json:"link"`
-	Miniprogram SendWelcomeMsgMiniprogram `json:"miniprogram"`
+	Text        SendWelcomeMsgText        `json:"text,omitempty"`
+	Image       SendWelcomeMsgImage       `json:"image,omitempty"`
+	Link        SendWelcomeMsgLink        `json:"link,omitempty"`
+	Miniprogram SendWelcomeMsgMiniprogram `json:"miniprogram,omitempty"`
 }
 
 type SendWelcomeMsgText struct {
@@ -59,7 +59,7 @@ type RespSendWelcomeMsg struct {
 // execExternalContactSendWelcomeMsg 发送新客户欢迎语
 func (c *WorkwxApp) execExternalContactSendWelcomeMsg(req ReqSendWelcomeMsg) (RespSendWelcomeMsg, error) {
 	var resp RespSendWelcomeMsg
-	err := c.executeQyapiJSONPost("/cgi-bin/externalcontact/send_welcome_msg", req, &resp, true)
+	err := c.executeQyapiJSONPost("/cgi-bin/externalcontact/send_welcome_msg?debug=1", req, &resp, true)
 	if err != nil {
 		return RespSendWelcomeMsg{}, err
 	}
