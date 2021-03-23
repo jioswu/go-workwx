@@ -7,11 +7,11 @@ import (
 
 //send_welcome_msg 发送新客户欢迎语
 type ReqSendWelcomeMsg struct {
-	WelcomeCode string                    `json:"welcome_code"`
-	Text        SendWelcomeMsgText        `json:"text,omitempty"`
-	Image       SendWelcomeMsgImage       `json:"image,omitempty"`
-	Link        SendWelcomeMsgLink        `json:"link,omitempty"`
-	Miniprogram SendWelcomeMsgMiniprogram `json:"miniprogram,omitempty"`
+	WelcomeCode string             `json:"welcome_code"`
+	Text        SendWelcomeMsgText `json:"text,omitempty"`
+	//Image       SendWelcomeMsgImage       `json:"image,omitempty"`
+	//Link        SendWelcomeMsgLink        `json:"link,omitempty"`
+	//Miniprogram SendWelcomeMsgMiniprogram `json:"miniprogram,omitempty"`
 }
 
 type SendWelcomeMsgText struct {
