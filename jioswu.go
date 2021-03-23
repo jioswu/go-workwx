@@ -57,14 +57,14 @@ type RespSendWelcomeMsg struct {
 }
 
 // execExternalContactSendWelcomeMsg 发送新客户欢迎语
-func (c *WorkwxApp) execExternalContactSendWelcomeMsg(req ReqSendWelcomeMsg) (RespSendWelcomeMsg, error) {
-	var resp RespSendWelcomeMsg
-	err := c.executeQyapiJSONPost("/cgi-bin/externalcontact/send_welcome_msg?debug=1", req, &resp, true)
+func (c *WorkwxApp) execExternalContactSendWelcomeMsg(req ReqSendWelcomeMsg) (resp RespSendWelcomeMsg, err error) {
+	resp = RespSendWelcomeMsg{}
+	err = c.executeQyapiJSONPost("/cgi-bin/externalcontact/send_welcome_msg", req, &resp, true)
 	if err != nil {
-		return RespSendWelcomeMsg{}, err
+		return
 	}
 	if bizErr := resp.TryIntoErr(); bizErr != nil {
-		return RespSendWelcomeMsg{}, bizErr
+		return
 	}
 
 	return resp, nil

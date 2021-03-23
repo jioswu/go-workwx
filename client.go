@@ -126,7 +126,7 @@ func (c *WorkwxApp) executeQyapiJSONPost(path string, req bodyer, respObj interf
 		// TODO: error_chain
 		return err
 	}
-
+	fmt.Printf("executeQyapiJSONPost url:%#v,body=%#v\n", url, string(body))
 	resp, err := c.opts.HTTP.Post(urlStr, "application/json", bytes.NewReader(body))
 	if err != nil {
 		// TODO: error_chain
