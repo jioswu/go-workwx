@@ -4,7 +4,7 @@ import "encoding/json"
 
 //send_welcome_msg 发送新客户欢迎语
 type ReqSendWelcomeMsg struct {
-	WelcomeCode string
+	WelcomeCode string                    `json:"welcome_code"`
 	Text        SendWelcomeMsgText        `json:"text"`
 	Image       SendWelcomeMsgImage       `json:"image"`
 	Link        SendWelcomeMsgLink        `json:"link"`
