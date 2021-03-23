@@ -1,6 +1,9 @@
 package workwx
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 //send_welcome_msg 发送新客户欢迎语
 type ReqSendWelcomeMsg struct {
@@ -17,11 +20,11 @@ type SendWelcomeMsgText struct {
 
 type SendWelcomeMsgImage struct {
 	MediaId string `json:"media_id"` //图片的media_id，可以通过素材管理接口获得
-	PicUrl  string `json"pic_url"`   //图片的链接，仅可使用上传图片接口得到的链接
+	PicUrl  string `json:"pic_url"`  //图片的链接，仅可使用上传图片接口得到的链接
 }
 
 type SendWelcomeMsgLink struct {
-	Title  string `json"title"`   //图文消息标题，最长为128字节
+	Title  string `json:"title"`  //图文消息标题，最长为128字节
 	Picurl string `json:"picurl"` //图文消息封面的url
 	Desc   string `json:"desc"`   //图文消息的描述，最长为512字节
 	Url    string `json:"url"`    //图文消息的链接
@@ -39,6 +42,7 @@ type SendWelcomeMsgMiniprogram struct {
 
 func (x ReqSendWelcomeMsg) intoBody() ([]byte, error) {
 	result, err := json.Marshal(x)
+	fmt.Printf("ReqSendWelcomeMsg initToBody:%s\n", string(result))
 	if err != nil {
 		// should never happen unless OOM or similar bad things
 		// TODO: error_chain
